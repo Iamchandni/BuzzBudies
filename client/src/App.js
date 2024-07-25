@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import {
@@ -16,14 +17,18 @@ import "./style.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 function App() {
   const {currentUser} = useContext(AuthContext);
 
   const { darkMode } = useContext(DarkModeContext);
 
+  const queryClient = new QueryClient()
+
   const Layout = () => {
     return (
+      <QueryClientProvider client={queryClient}>
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
         <div style={{ display: "flex" }}>
@@ -34,6 +39,7 @@ function App() {
           <RightBar />
         </div>
       </div>
+      </QueryClientProvider>
     );
   };
 
