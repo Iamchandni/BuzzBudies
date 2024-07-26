@@ -7,7 +7,6 @@ import likeRoute from "./routes/likes.js"
 import userRoute from "./routes/users.js"
 import cors from "cors";
 import multer from "multer";
-import CookiePaser from "cookie-parser";
 import cookieParser from "cookie-parser";
 
 //middleware
